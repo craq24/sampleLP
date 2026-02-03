@@ -101,3 +101,22 @@ if (!prefersReducedMotion) {
 
   updateParallax();
 }
+
+const menuButton = document.querySelector(".menu-toggle");
+const mobileNav = document.querySelector(".mobile-nav");
+
+if (menuButton && mobileNav) {
+  const toggleMenu = () => {
+    const isOpen = mobileNav.classList.toggle("is-open");
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+  };
+
+  menuButton.addEventListener("click", toggleMenu);
+
+  mobileNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileNav.classList.remove("is-open");
+      menuButton.setAttribute("aria-expanded", "false");
+    });
+  });
+}
