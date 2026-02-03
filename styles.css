@@ -112,6 +112,7 @@ body::before {
 
 main {
   padding-bottom: 80px;
+  perspective: 1200px;
 }
 
 section {
@@ -135,6 +136,15 @@ section {
 
 .parallax-layer.layer-two {
   background: radial-gradient(circle at 80% 35%, rgba(154, 217, 255, 0.16), transparent 60%);
+}
+
+.parallax-layer.layer-grid {
+  background:
+    linear-gradient(transparent 96%, rgba(127, 217, 255, 0.08) 100%),
+    linear-gradient(90deg, transparent 96%, rgba(127, 217, 255, 0.06) 100%);
+  background-size: 140px 140px;
+  animation: gridDrift 20s linear infinite;
+  opacity: 0.35;
 }
 
 .glow-orb {
@@ -198,6 +208,17 @@ section {
   letter-spacing: 0.01em;
 }
 
+.hero-title {
+  position: relative;
+  color: var(--ink);
+  background: linear-gradient(120deg, #ffffff, #9ad9ff 45%, #ffffff 75%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShine 5s ease-in-out infinite;
+}
+
 .lead {
   font-size: 1.05rem;
   color: var(--ink-soft);
@@ -245,6 +266,7 @@ section {
   opacity: 0.6;
   z-index: -1;
   filter: blur(10px);
+  animation: glowPulse 3.6s ease-in-out infinite;
 }
 
 .btn.primary:hover {
@@ -263,6 +285,10 @@ section {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
   margin-top: 24px;
+}
+
+.hero-meta > div {
+  animation: floatSoft 9s ease-in-out infinite;
 }
 
 .meta-label {
@@ -285,6 +311,7 @@ section {
   border: 1px solid rgba(127, 217, 255, 0.16);
   animation: floatSoft 8s ease-in-out infinite, rotateSlow 18s ease-in-out infinite;
   transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+  transform-style: preserve-3d;
 }
 
 .hero-card .card-title {
@@ -364,6 +391,7 @@ section {
   box-shadow: 0 14px 30px rgba(5, 15, 30, 0.35);
   transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
   animation: floatSoft 10s ease-in-out infinite;
+  transform-style: preserve-3d;
 }
 
 .panel:hover {
@@ -388,6 +416,7 @@ section {
   border: 1px solid var(--line);
   animation: floatSoft 12s ease-in-out infinite;
   transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+  transform-style: preserve-3d;
 }
 
 .step {
@@ -414,6 +443,7 @@ section {
   border: 1px solid var(--line);
   animation: floatSoft 11s ease-in-out infinite;
   transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+  transform-style: preserve-3d;
 }
 
 .flow-card:hover,
@@ -441,6 +471,7 @@ section {
   box-shadow: var(--shadow);
   animation: floatSoft 12s ease-in-out infinite;
   transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+  transform-style: preserve-3d;
 }
 
 .pricing-label {
@@ -506,6 +537,7 @@ section {
   box-shadow: var(--shadow);
   animation: floatSoft 10s ease-in-out infinite;
   transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+  transform-style: preserve-3d;
 }
 
 .apply-form label {
@@ -643,6 +675,17 @@ section[data-reveal].is-visible .stagger > * {
   100% { box-shadow: 0 0 0 rgba(127, 217, 255, 0.2); }
 }
 
+@keyframes textShine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gridDrift {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 140px 140px, 140px 140px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-reveal],
   section[data-reveal] .stagger > * {
@@ -662,6 +705,11 @@ section[data-reveal].is-visible .stagger > * {
   .parallax-layer,
   .cta-pulse {
     animation: none;
+  }
+
+  .hero-title {
+    -webkit-text-fill-color: currentColor;
+    background: none;
   }
 }
 

@@ -20,6 +20,7 @@ revealTargets.forEach((target) => observer.observe(target));
 
 if (!prefersReducedMotion) {
   const parallaxTargets = document.querySelectorAll("[data-parallax]");
+  const tiltTargets = document.querySelectorAll(".hero-card, .panel, .flow-card, .pricing-card, .apply-form, .timeline-item");
   let mouseX = 0.5;
   let mouseY = 0.5;
   let rafId = null;
@@ -52,6 +53,22 @@ if (!prefersReducedMotion) {
     mouseX = event.clientX / window.innerWidth;
     mouseY = event.clientY / window.innerHeight;
     requestTick();
+  });
+
+  tiltTargets.forEach((target) => {
+    const intensity = 6;
+    target.addEventListener("mousemove", (event) => {
+      const rect = target.getBoundingClientRect();
+      const relX = (event.clientX - rect.left) / rect.width - 0.5;
+      const relY = (event.clientY - rect.top) / rect.height - 0.5;
+      const rotateX = (relY * -intensity).toFixed(2);
+      const rotateY = (relX * intensity).toFixed(2);
+      target.style.transform = `translateY(-4px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    target.addEventListener("mouseleave", () => {
+      target.style.transform = "";
+    });
   });
 
   updateParallax();
