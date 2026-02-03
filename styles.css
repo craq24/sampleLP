@@ -105,6 +105,12 @@ body::before {
   text-shadow: 0 0 12px rgba(79, 247, 255, 0.4);
 }
 
+.nav a[aria-current="page"] {
+  opacity: 1;
+  color: var(--accent);
+  text-shadow: 0 0 12px rgba(79, 247, 255, 0.4);
+}
+
 .cta-link {
   padding: 10px 18px;
   border-radius: 999px;
@@ -485,6 +491,16 @@ section {
   border-color: rgba(79, 247, 255, 0.3);
 }
 
+.flow-summary-actions {
+  margin-top: 26px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.flow-summary-actions .btn {
+  box-shadow: 0 16px 30px rgba(79, 247, 255, 0.18);
+}
+
 .timeline-item:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 40px rgba(6, 14, 28, 0.45);
@@ -538,6 +554,59 @@ section {
 .faq-list summary {
   font-weight: 600;
   cursor: pointer;
+}
+
+.flow-hero {
+  padding-bottom: 110px;
+}
+
+.flow-hero .hero-card {
+  border-color: rgba(139, 92, 255, 0.24);
+  box-shadow:
+    0 18px 50px rgba(6, 14, 32, 0.55),
+    inset 0 0 24px rgba(139, 92, 255, 0.08);
+}
+
+.flow-detail .timeline-item {
+  background: rgba(8, 16, 32, 0.88);
+}
+
+.week-cycle .flow-card {
+  border-color: rgba(139, 92, 255, 0.2);
+}
+
+.support .panel {
+  border-color: rgba(139, 92, 255, 0.16);
+}
+
+.artifacts .panel {
+  border-color: rgba(79, 247, 255, 0.18);
+}
+
+.flow-cta {
+  background: linear-gradient(120deg, rgba(79, 247, 255, 0.12), rgba(139, 92, 255, 0.12));
+  border-top: 1px solid rgba(79, 247, 255, 0.18);
+  border-bottom: 1px solid rgba(79, 247, 255, 0.18);
+}
+
+.cta-card {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 28px;
+  align-items: center;
+  padding: 32px;
+  border-radius: 24px;
+  background: rgba(8, 14, 28, 0.86);
+  border: 1px solid rgba(79, 247, 255, 0.18);
+  box-shadow: 0 20px 46px rgba(6, 12, 28, 0.45);
+}
+
+.cta-card h2 {
+  margin-top: 10px;
+}
+
+.cta-card .btn {
+  width: 100%;
 }
 
 .apply {
@@ -765,7 +834,8 @@ section[data-reveal].is-visible .stagger > * {
   .grid-3,
   .grid-2,
   .flow-grid,
-  .pricing-card {
+  .pricing-card,
+  .cta-card {
     grid-template-columns: 1fr;
   }
 
