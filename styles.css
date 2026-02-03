@@ -1019,6 +1019,13 @@ section[data-reveal].is-visible .stagger > * {
   }
 }
 
+@media (min-width: 961px) {
+  .menu-toggle,
+  .mobile-nav {
+    display: none !important;
+  }
+}
+
 @media (max-width: 600px) {
   section {
     padding: 70px 0;

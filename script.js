@@ -119,4 +119,11 @@ if (menuButton && mobileNav) {
       menuButton.setAttribute("aria-expanded", "false");
     });
   });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 960) {
+      mobileNav.classList.remove("is-open");
+      menuButton.setAttribute("aria-expanded", "false");
+    }
+  });
 }
