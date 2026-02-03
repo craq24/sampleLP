@@ -48,7 +48,7 @@ revealTargets.forEach((target) => observer.observe(target));
 
 if (!prefersReducedMotion) {
   const parallaxTargets = document.querySelectorAll("[data-parallax]");
-  const tiltTargets = document.querySelectorAll(".hero-card, .panel, .flow-card, .pricing-card, .apply-form, .timeline-item");
+  const tiltTargets = document.querySelectorAll(".hero-card, .panel, .flow-card, .pricing-card, .apply-form, .timeline-item, .week-card, .tool-card");
   let mouseX = 0.5;
   let mouseY = 0.5;
   let rafId = null;
